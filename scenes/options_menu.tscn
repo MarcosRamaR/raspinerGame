@@ -1,0 +1,331 @@
+[gd_scene load_steps=22 format=3 uid="uid://dx4tyob71r4gc"]
+
+[ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_efea1"]
+[ext_resource type="Script" path="res://scenes/script/video.gd" id="1_fls26"]
+[ext_resource type="Script" path="res://scenes/script/options_menu.gd" id="1_nxm08"]
+[ext_resource type="Script" path="res://scenes/script/options.gd" id="1_xj1xi"]
+[ext_resource type="Script" path="res://scenes/script/start.gd" id="1_y3eoa"]
+[ext_resource type="Script" path="res://scenes/script/exit.gd" id="2_c7n3g"]
+[ext_resource type="Script" path="res://scenes/script/Audio.gd" id="2_pod36"]
+[ext_resource type="FontFile" uid="uid://5ce6hg8xyaww" path="res://Assets/Stifly.ttf" id="2_sn2nf"]
+[ext_resource type="Script" path="res://scenes/script/back_button.gd" id="3_n7g5k"]
+[ext_resource type="AudioStream" uid="uid://tj8ruiw740nl" path="res://Assets/Music/Music/Goblins_Den__Regular_.mp3" id="9_cm0rd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv6j4"]
+texture = ExtResource("1_efea1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xct3k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwf5k"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.483434, 1.2514e-06, 2.16588e-07, 0.6)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt1a2"]
+bg_color = Color(0.32045, 3.06834e-07, 1.20327e-07, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y4sb"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuwg2"]
+bg_color = Color(0.388925, 9.50582e-07, 4.81308e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq8vs"]
+bg_color = Color(0.388235, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmc0s"]
+bg_color = Color(0.388235, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0qmy"]
+bg_color = Color(0.388235, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_witvj"]
+bg_color = Color(0.388235, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dexd"]
+bg_color = Color(0.388235, 0, 0, 1)
+
+[node name="OptionsMenu" type="Node2D"]
+script = ExtResource("1_nxm08")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("9_cm0rd")
+autoplay = true
+bus = &"Music"
+
+[node name="Panel" type="Panel" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fv6j4")
+
+[node name="MainMenu" type="VBoxContainer" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -115.5
+offset_right = 183.0
+offset_bottom = 115.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Start" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xct3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cwf5k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pt1a2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y4sb")
+text = "Start Game"
+script = ExtResource("1_y3eoa")
+
+[node name="Options" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xct3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cwf5k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pt1a2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y4sb")
+text = "Options"
+script = ExtResource("1_xj1xi")
+
+[node name="Exit" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xct3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cwf5k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pt1a2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y4sb")
+text = "Exit Game"
+script = ExtResource("2_c7n3g")
+
+[node name="Settings" type="TabContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="video" type="TabBar" parent="UI/Settings"]
+layout_mode = 2
+script = ExtResource("1_fls26")
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/video"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/video/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="FullScreen" type="Label" parent="UI/Settings/video/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 40
+text = "FullScreen"
+
+[node name="Borderless" type="Label" parent="UI/Settings/video/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 40
+text = "Borderless"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/video/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="FullScreen" type="CheckBox" parent="UI/Settings/video/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Borderless" type="CheckBox" parent="UI/Settings/video/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Back_button" type="Button" parent="UI/Settings/video"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+script = ExtResource("3_n7g5k")
+
+[node name="Audio" type="TabBar" parent="UI/Settings"]
+visible = false
+layout_mode = 2
+script = ExtResource("2_pod36")
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -38.5
+offset_right = 29.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/Audio/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Master" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 30
+text = "Master"
+
+[node name="Music" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 30
+text = "Music"
+
+[node name="SFX" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/Audio/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Master" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_uuwg2")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_kq8vs")
+max_value = 1.0
+step = 0.05
+
+[node name="Music" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_fmc0s")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_k0qmy")
+max_value = 1.0
+step = 0.05
+
+[node name="SFX" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_witvj")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_3dexd")
+max_value = 1.0
+step = 0.05
+
+[node name="Back_button" type="Button" parent="UI/Settings/Audio"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+script = ExtResource("3_n7g5k")
+
+[node name="Label" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.5
+offset_right = 184.5
+offset_bottom = 127.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 70
+text = "Raspiner
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="UI/MainMenu/Start" to="UI/MainMenu/Start" method="_on_pressed"]
+[connection signal="pressed" from="UI/MainMenu/Options" to="UI/MainMenu/Options" method="_on_pressed"]
+[connection signal="pressed" from="UI/MainMenu/Exit" to="UI/MainMenu/Exit" method="_on_pressed"]
+[connection signal="toggled" from="UI/Settings/video/HBoxContainer/VBoxContainer2/FullScreen" to="UI/Settings/video" method="_on_full_screen_toggled"]
+[connection signal="toggled" from="UI/Settings/video/HBoxContainer/VBoxContainer2/Borderless" to="UI/Settings/video" method="_on_borderless_toggled"]
+[connection signal="pressed" from="UI/Settings/video/Back_button" to="UI/Settings/video/Back_button" method="_on_pressed"]
+[connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
+[connection signal="pressed" from="UI/Settings/Audio/Back_button" to="UI/Settings/Audio/Back_button" method="_on_pressed"]
